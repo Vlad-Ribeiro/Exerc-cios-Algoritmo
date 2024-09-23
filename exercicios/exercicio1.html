@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercício 1</title>
+</head>
+<body>
+    <h1>Primeiro exercício</h1>
+    Escreva sua cidade natal:
+    <input type="text" id="ipt_cidadeNatal">
+    Escreva o ano em que você nasceu:
+    <input type="text" id="ipt_anoNasc">
+    <input type="button" value="Cadastrar" onclick="mostrarCadastro()">
+</body>
+</html>
+<script>
+    function mostrarCadastro() {
+        alert('Você nasceu na cidade de ' + ipt_cidadeNatal.value + ' em ' + ipt_anoNasc.value + '.')
+    }
+</script>

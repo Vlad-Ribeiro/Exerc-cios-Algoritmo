@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 10</title>
+</head>
+<body>
+    Insira um número:
+    <input type="number" name="" id="iptN1"> <br>
+    Insira um segundo número:
+    <input type="number" name="" id="iptN2"> <br>
+    <input type="button" value="Soma" onclick="soma()">
+    <input type="button" value="Subtração" onclick="subtracao()">
+    <input type="button" value="Multiplicação" onclick="multiplicacao()">
+    <input type="button" value="Divisão" onclick="divisao()">
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function soma() {
+        var n1 = iptN1.value
+        var n2 = iptN2.value
+        divResultado.innerHTML = `A soma entre '${n1}' e '${n2}' é: ${Number(n1) + Number(n2)}`
+    }
+
+    function subtracao() {
+        var n1 = iptN1.value
+        var n2 = iptN2.value
+        divResultado.innerHTML = `A subtração entre '${n1}' e '${n2}' é: ${Number(n1) - Number(n2)}`
+    }
+
+    function multiplicacao() {
+        var n1 = iptN1.value
+        var n2 = iptN2.value
+        divResultado.innerHTML = `A multiplicação entre '${n1}' e '${n2}' é: ${Number(n1) * Number(n2)}`
+    }
+
+    function divisao() {
+        var n1 = iptN1.value
+        var n2 = iptN2.value
+        divResultado.innerHTML = `A divisão entre '${n1}' e '${n2}' é: ${Number(n1) / Number(n2)}`
+    }
+</script>

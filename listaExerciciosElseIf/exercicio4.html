@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o peso da criança: 
+    <input type="number" name="" id="iptPeso"> <br>
+    <button onclick="verificar()">Verificar</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var peso = Number(iptPeso.value)
+
+        if (peso <= 13.5) {
+            divResultado.innerHTML = `Abaixo do peso`
+        } else if (peso == 18.3) {
+            divResultado.innerHTML = `Peso ideal`
+        } else if (peso <= 21.2) {
+            divResultado.innerHTML = `Peso na média`
+        } else {
+            divResultado.innerHTML = `Acima do peso`
+        }
+    }
+</script>

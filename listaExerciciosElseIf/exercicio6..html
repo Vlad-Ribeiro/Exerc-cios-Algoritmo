@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o time do Estado de São Paulo que você torce ('São Paulo', 'Corinthians', 'Santos' ou 'Palmeiras'):
+    <input type="text" id="iptTime"> <br>
+    <button onclick="verificar()">Verificar</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var time = iptTime.value
+
+        if (time == 'São Paulo') {
+            divResultado.innerHTML = `<p style = 'background-color: black; color: red'>Salve o Tricolor paulista</p>`
+        } else if (time == 'Palmeiras') {
+            divResultado.innerHTML = `<p style = 'background-color: green; color: white'>Salve o alviverde imponente</p>`
+        } else if (time == 'Corinthians') {
+            divResultado.innerHTML = `<p style = 'background-color: black; color: white'>Salve o Corinthians</p>`
+        } else if (time == 'Santos') {
+            divResultado.innerHTML = `<p style = 'background-color: white; black: white'>Agora quem dá a bola é o Santos</p>`
+        }
+    }
+</script>

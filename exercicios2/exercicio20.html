@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de homens:
+    <input type="number" name="" id="iptNumH"> <br>
+    Informe a quantidade de mulheres:
+    <input type="number" name="" id="iptNumM"> <br>
+    <button onclick="ligarElevador()">Ligar elevador</button> <br>
+    <div id="divElevador"></div> 
+</body>
+</html>
+<script>
+    function ligarElevador() {
+        var qtdHomens = Number(iptNumH.value);
+        var qtdMulheres = Number(iptNumM.value);
+
+        var pesoQtdHomens = qtdHomens * 90;
+        var pesoQtdMulheres = qtdMulheres * 70;
+
+        var pesoTotal = pesoQtdHomens + pesoQtdMulheres;
+        
+        if (pesoTotal > 500) {
+            divElevador.innerHTML = `<p style = 'color: red'>Limite de peso atingido! Alguém precisa descer para o elevador se mover.</p>`
+        } else {
+            divElevador.innerHTML = `<p style = 'color: green'>O elevador irá se mover.</p>`
+        };
+    };
+</script>

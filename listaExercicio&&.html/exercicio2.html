@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a sua renda pessoal:
+    <input type="number" name="" id="iptRendaPessoal"> <br>
+    Informe a sua renda familiar:
+    <input type="number" name="" id="iptRendaFamiliar"> <br>
+    <button onclick="verificar()">Verificar ajuda</button>
+</body>
+</html>
+<script>
+    function verificar() {
+        var rendaPessoal = Number(iptRendaPessoal.value)
+        var rendaFamiliar = Number(iptRendaFamiliar.value)
+
+        if (rendaPessoal <= 1050 && rendaFamiliar <= 2100) {
+            alert('Você terá direito!')
+        } else {
+            alert('Você NÃO terá direito!')
+        }
+    }
+</script>

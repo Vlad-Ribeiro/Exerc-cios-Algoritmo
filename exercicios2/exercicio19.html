@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a temperatura do ambiente:
+    <input type="number" name="" id="iptTemp"> <br>
+    <button onclick="verificarTemp()">Verificar clima</button> <br>
+    <div id="divImagem"></div>
+</body>
+</html>
+<script>
+    function verificarTemp() {
+        var temperatura = Number(iptTemp.value);
+
+        if (temperatura >= 10) {
+            divImagem.innerHTML = `<img src = 'https://s2.glbimg.com/9j5W3Yvg7uJPUbC8_zrQ3vemCDM=/780x440/e.glbimg.com/og/ed/f/original/2015/12/03/mamao_podre_scot_nelson_creative_commons.jpg'>`;
+        } else {
+            divImagem.innerHTML = `<img src = 'https://img.freepik.com/fotos-gratis/visao-superior-da-variedade-de-piramide-alimentar-real_23-2150238927.jpg'>`;
+        };
+    };
+</script>

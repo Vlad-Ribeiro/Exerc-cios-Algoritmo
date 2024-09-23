@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    Insira sua idade abaixo: <br>
+    <input type="number" id="iptIdade">
+    <input type="button" value="Aposentadoria homem" id="btAposentadoriaH" onclick="aposentadoriaH()">
+    <input type="button" value="Aposentadoria mulher" id="btAposentadoriaM" onclick="aposentadoriaM()">
+</body>
+</html>
+<script>
+    function aposentadoriaH() {
+        var tempoQueFaltaH = 70 - Number(iptIdade.value);
+        if (iptIdade.value >= 70){
+            alert('O senhor já tem idade para se aposentar.')
+        } else {
+            alert('Faltam ' + tempoQueFaltaH + ' anos para o senhor se aposentar.')
+        }
+    }
+
+    function aposentadoriaM () {
+        var tempoQueFaltaM = 60 - Number(iptIdade.value)
+        if (iptIdade.value >= 60){
+            alert('A senhora já tem idade para se aposentar.')
+        } else {
+            alert('Faltam ' + tempoQueFaltaM + ' anos para a senhora se aposentar.')
+        }
+    }
+</script>

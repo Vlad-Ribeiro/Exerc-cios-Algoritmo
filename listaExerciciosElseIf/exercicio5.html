@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a nota do aluno:
+    <input type="number" name="" id="iptNota">
+    <br>
+    <button onclick="verificar()">Verificar</button>
+    <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var nota = Number(iptNota.value)
+
+        if (nota < 5) {
+            divResultado.innerHTML = `Aluno precisa de ajuda`
+        } else if (nota <= 7) {
+            divResultado.innerHTML = `Aluno na média`
+        } else if (nota <= 9.5) {
+            divResultado.innerHTML = `Aluno acima da média`
+        } else {
+            divResultado.innerHTML = `Aluno fora da curva`
+        }
+    }
+</script>

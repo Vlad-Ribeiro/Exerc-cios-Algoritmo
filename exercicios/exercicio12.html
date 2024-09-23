@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    <div id="divSaldoAtual">Saldo atual: R$ 0</div> <br>
+    Digite o valor a ser depositado/retirado:
+    <input type="number" name="" id="iptTransferencia"> <br>
+    <input type="button" value="Depositar" onclick="depositar()">
+    <input type="button" value="Retirar" onclick="retirar()">
+</body>
+</html>
+<script>
+    var saldo = 0
+
+    function depositar() {
+        saldo = saldo + Number(iptTransferencia.value)
+        divSaldoAtual.innerHTML = `Saldo atual: R$ ${saldo}`
+        alert(`Depósito de R$ ${iptTransferencia.value} efetuado! Saldo atual: R$ ${saldo}`)
+    }
+
+    function retirar() {
+        saldo = saldo - Number(iptTransferencia.value)
+        divSaldoAtual.innerHTML = `Saldo atual: R$ ${saldo}`
+        alert(`Retirada de R$ ${iptTransferencia.value} efetuada! Saldo atual: R$ ${saldo}`)
+    }
+</script>

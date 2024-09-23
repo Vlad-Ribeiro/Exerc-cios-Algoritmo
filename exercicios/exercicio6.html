@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+</head>
+<body>
+    Insira a quantidade de pessoas para dividir a pizza:
+    <input type="number" id="iptQuantidadePessoas"> <br>
+    Insira o valor da pizza:
+    <input type="number" name="" id="iptPrecoPizza"><br>
+    <input type="button" value="#LovePizza!" onclick="calcularPreco()">
+</body>
+</html>
+<script>
+    function calcularPreco() {
+        var divisaoPizza = Number(iptPrecoPizza.value) / Number(iptQuantidadePessoas.value)
+        alert('Cada uma das ' + iptQuantidadePessoas.value + ' pessoas vai pagar R$' + divisaoPizza)
+    }
+</script>

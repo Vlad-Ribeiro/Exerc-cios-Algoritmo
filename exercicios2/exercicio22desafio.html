@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome:
+    <input type="text" id="iptNome"> <br>
+    Distância (km):
+    <input type="number" name="" id="iptDistancia"> <br>
+    Bandeira (1 a 3):
+    <input type="number" name="" id="iptBandeira" max="3" min="1"> <br>
+    Horário da corrida (0 a 23):
+    <input type="number" name="" id="iptHorario" max="23" min="0"> <br>
+    <button onclick="calcular()">Calcular corrida</button> <br>
+    <div id="divCorrida"></div>
+</body>
+</html>
+<script>
+    function calcular() {
+        var nome = iptNome.value;
+        var distancia = Number(iptDistancia.value);
+        var bandeira = Number(iptBandeira.value);
+        var horario = Number(iptHorario.value);
+
+        var corridaPadrao = distancia * 1.25;
+
+        if (horario <= 6) {
+            var bandeiraH1 = bandeira * 0.05;
+            divCorrida.innerHTML = `Olá, ${nome}! Sua corrida, será na bandeira '${bandeira}', percorrerá ${distancia} km e o total da corrida será de ${corridaPadrao + (bandeiraH1 * corridaPadrao)}`;
+        };
+
+        if (horario <= 12) {
+            var bandeiraH2 = bandeira * 0.1;
+            divCorrida.innerHTML = `Olá, ${nome}! Sua corrida, será na bandeira '${bandeira}', percorrerá ${distancia} km e o total da corrida será de ${corridaPadrao + (bandeiraH2 * corridaPadrao)}`;
+        };
+
+        if (horario <= 23) {
+            var bandeiraH3 = bandeira * 0.15;
+            divCorrida.innerHTML = `Olá, ${nome}! Sua corrida, será na bandeira '${bandeira}', percorrerá ${distancia} km e o total da corrida será de ${corridaPadrao + (bandeiraH3 * corridaPadrao)}`;
+        };
+    };   
+</script>

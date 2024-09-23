@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercício 2</title>
+</head>
+<body>
+    <h1>Segundo exercício</h1>
+    Digite seu peso:
+    <input type="text" id="ipt_peso">
+    Digite sua altura:
+    <input type="text" id="ipt_altura">
+    <input type="button" value="Fale comigo" onclick="faleComigo()">
+</body>
+</html>
+<script>
+    function faleComigo() {
+        alert('Você pesa ' + ipt_peso.value + 'kg e tem ' + ipt_altura.value + 'm de altura.')
+    }
+</script>

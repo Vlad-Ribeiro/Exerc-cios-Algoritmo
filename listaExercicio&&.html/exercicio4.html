@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o horário em que você costuma assistir sua série:
+    <input type="number" name="" id="iptHora" min="0" max="23"> <br>
+    <button onclick="recomendacao()">Ver recomendação</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function recomendacao() {
+        var hora = Number(iptHora.value)
+
+        if (hora >= 19 && hora <= 21) {
+            divResultado.innerHTML = `Não é recomendado que você assista sua série favorita no horário ${hora}h`
+        } else {
+            divResultado.innerHTML = `O horário ${hora}h é adequado para assistir sua série favorita`
+        }
+    }
+</script>

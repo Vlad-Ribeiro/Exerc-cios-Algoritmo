@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 9</title>
+</head>
+<body>
+    Informe a nota da avaliação continuada:
+    <input type="number" id="iptN1"> <br>
+    Informe a nota da avaliação semestral:
+    <input type="number" id="iptN2"> <br>
+    Informe o nome do aluno:
+    <input type="text" id="iptNome"> <br>
+    <input type="button" value="Calcular média" onclick="calcularMedia()">
+</body>
+</html>
+<script>
+    function calcularMedia() {
+        alert('A média do aluno(a) ' + iptNome.value + ' é: ' + (Number(iptN1.value) * 0.4 + Number(iptN2.value) * 0.6))
+    }
+</script>

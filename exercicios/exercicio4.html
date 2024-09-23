@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercício 4</title>
+</head>
+<body>
+    <h1>Quarto exercício</h1>
+    Qual o seu endereço:
+    <input type="text" id="ipt_endereco">
+    Qual o número da sua moradia:
+    <input type="text" id="ipt_numMoradia">
+    <input type="button" value="Onde eu moro" onclick="ondeEuMoro()">
+</body>
+</html>
+<script>
+    function ondeEuMoro() {
+        alert('Seu logradouro é: ' + ipt_endereco.value)
+        alert('O número do seu logradouro é: ' + ipt_numMoradia.value)
+    }
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a frequência do aluno:
+    <input type="number" name="" id="iptFrequencia"> <br>
+    <button onclick="analisar()">Analisar frequência</button> <br>
+    <div id="divImagem"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var frequencia = Number(iptFrequencia.value);
+
+        if (frequencia >= 50) {
+            divImagem.innerHTML = `<img src = 'https://media.gazetadopovo.com.br/2017/08/298e8518ba6191db012724dad7d52bab-gpMedium.jpg'>`
+        } else {
+            divImagem.innerHTML = `<img src = 'https://blog.webcontinental.com.br/wp-content/uploads/2023/06/turismo.jpg'>`
+        }
+    };
+</script>

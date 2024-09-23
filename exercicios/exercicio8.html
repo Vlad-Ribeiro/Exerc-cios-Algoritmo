@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    Nome do guerreiro Sayajin:
+    <input type="text" id="iptNome"> <br>
+    Informe o KI normal do guerreiro:
+    <input type="number" id="iptKI"> <br>
+    <input type="button" value="Ver KI em cada forma" onclick="calcularKI()">
+</body>
+</html>
+<script>
+    function calcularKI() {
+        alert('KI do guerreiro na forma Super Sayajin: ' + Number(iptKI.value) * 50)
+        alert('KI do guerreiro na forma Super Sayajin 2: ' + Number(iptKI.value) * 100)
+    }
+</script>

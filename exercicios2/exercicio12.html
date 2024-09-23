@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o peso total em um elevador:
+    <input type="number" name="" id="iptPeso"> <br>
+    <input type="button" value="Ligar elevador" onclick="ligar()"> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function ligar() {
+        var peso = Number(iptPeso.value);
+
+        if (peso >= 500) {
+            divResultado.innerHTML = `Alguém precisa descer do elevador!`;
+        } else {
+            divResultado.innerHTML = `O elevador vai se mover!`;
+        };
+    };
+</script>

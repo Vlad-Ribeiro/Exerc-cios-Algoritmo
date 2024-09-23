@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe sua altura:
+    <input type="number" name="" id="iptAltura">
+    <br>
+    <button onclick="verificar()">Verificar</button>
+    <br>
+    <div id="divVerificar"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var altura = Number(iptAltura.value);
+
+        if (altura <= 1.65) {
+            divVerificar.innerHTML = `Você pode ser piloto de corrida!`
+        } else if (altura <= 1.80) {
+            divVerificar.innerHTML = `Você pode ser jogador de futebol`
+        } else {
+            divVerificar.innerHTML = `Você pode ser jogador de vôlei ou basquete`
+        }
+    };
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira a quantidade de KWh consumida no mês:
+    <input type="number" name="" id="iptKWh"> <br>
+    <input type="button" value="Calcular conta de luz" onclick="contaLuz()"> <br>
+    <div id="divContaDeLuz"></div>
+</body>
+</html>
+<script>
+    function contaLuz() {
+        var KWh = Number(iptKWh.value);
+        var precoConta = KWh * 0.85;
+
+        if (KWh >= 100) {
+            alert(`Valor da conta de luz a ser paga: R$ ${precoConta}`);
+        };
+
+        if (KWh < 100) {
+            alert(`Valor da conta de luz a ser paga: R$ ${(precoConta) - (precoConta * 0.1)}`);
+        };
+    };
+</script>

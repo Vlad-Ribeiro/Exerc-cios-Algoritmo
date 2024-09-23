@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 18</title>
+</head>
+<body>
+    Informe o KI base do guerreiro Sayajin:
+    <input type="number" name="" id="iptKI"> <br>
+    Transformar em: <br>
+    <input type="button" value="SSJ" onclick="ssj()">
+    <input type="button" value="SSJ2" onclick="ssj2()">
+    <input type="button" value="SSJ3" onclick="ssj3()"> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function ssj() {
+        divMensagem.innerHTML = `Após se transformar em SSJ o KI desse Sayajin passa a ser: ${iptKI.value * 50}`
+    }
+
+    function ssj2() {
+        divMensagem.innerHTML = `Após se transformar em SSJ2 o KI desse Sayajin passa a ser: ${iptKI.value * 100}`
+    }
+
+    function ssj3() {
+        divMensagem.innerHTML = `Após se tranformar em SJJ3 o KI desse Sayajin passa a ser: ${iptKI.value * 200}`
+    }
+</script>

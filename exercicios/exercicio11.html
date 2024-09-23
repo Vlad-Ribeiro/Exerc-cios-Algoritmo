@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 11</title>
+</head>
+<body>
+    <div id="divSaldo">Saldo atual: R$ 0</div> <br>
+    <input type="button" value="Receber R$ 100" onclick="receber()">
+    <input type="button" value="Debitar R$ 50" onclick="debitar()">
+</body>
+</html>
+<script>
+    var saldo = 0
+
+    function receber() {
+        saldo = saldo + 100
+        divSaldo.innerHTML = `Saldo atual: R$ ${saldo}`
+    }
+
+    function debitar() {
+        saldo = saldo - 50
+        divSaldo.innerHTML = `Saldo atual: R$ ${saldo}`
+    }
+</script>

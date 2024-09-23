@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a nota do aluno:
+    <input type="number" name="" id="iptNota"> <br>
+    Informe a frequência do aluno:
+    <input type="number" name="" id="iptFrequencia"> <br>
+    <button onclick="avaliar()">Avaliar aluno</button>
+</body>
+</html>
+<script>
+    function avaliar() {
+        var nota = Number(iptNota.value)
+        var frequencia = Number(iptFrequencia.value)
+
+        var mensagem = `Infelizmente, não foi dessa vez`
+
+        if (nota >=6 && frequencia >= 75){
+            mensagem = `Parabéns! Aprovado!`
+        }
+
+        alert(mensagem)
+    }
+</script>

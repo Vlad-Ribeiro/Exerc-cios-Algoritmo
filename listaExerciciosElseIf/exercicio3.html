@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a temperatura do local:
+    <input type="number" name="" id="iptTemp"> <br>
+    <button onclick="verificar()">Verificar</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var temperatura = Number(iptTemp.value)
+
+        if (temperatura <= 14) {
+            divResultado.innerHTML = `Congelante`
+        } else if (temperatura <= 21) {
+            divResultado.innerHTML = `Com frio`
+        } else if (temperatura <= 24) {
+            divResultado.innerHTML = `Confortável`
+        } else if (temperatura <= 31) {
+            divResultado.innerHTML = `Com calor`
+        } else {
+            divResultado.innerHTML = `Escaldante`
+        }
+    }
+</script>

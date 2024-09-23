@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 12</title>
+</head>
+<body>
+    Informe o sabor da pizza:
+    <input type="text" id="iptSaborPizza"> <br>
+    Informe o valor da pizza:
+    <input type="number" name="" id="iptValorPizza"> <br>
+    Informe a quantidade de amigos que vão comer:
+    <input type="number" name="" id="iptAmigos"> <br>
+    <input type="button" value="Ver valor por amigo" onclick="valorPizza()"> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function valorPizza() {
+        var sabor = iptSaborPizza.value;
+        var valor = Number(iptValorPizza.value);
+        var amigos = Number(iptAmigos.value);
+        var caixinha = valor * 0.1;
+        var total = valor + caixinha;
+
+        divMensagem.innerHTML = ` Pizza de: ${sabor} <br>
+        Valor da pizza: R$ ${valor} <br>
+        Valor da caixinha: R$ ${caixinha} <br>
+        Total: R$ ${total} <br>
+        Total dividido pelos ${amigos} amigos: R$ ${total / amigos}`;
+    };
+</script>

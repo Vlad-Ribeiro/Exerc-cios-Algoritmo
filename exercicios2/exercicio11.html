@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de filhos:
+    <input type="number" name="" id="iptFilhos"> <br>
+    <input type="button" value="Analisar fámilia" onclick="analisar()"> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var filhos = Number(iptFilhos.value);
+
+        if (filhos == 1) {
+            divResultado.innerHTML = `Não tem TV! <br>`;
+        } else if (filhos == 2) {
+            divResultado.innerHTML = `Não tem TV! <br> Não tem internet! <br>`;
+        } else if (filhos == 3) {
+            divResultado.innerHTML = `Não tem TV! <br> Não tem internet! <br> Não tem video-game! <br>`;
+        } else if (filhos >= 4) {
+            divResultado.innerHTML = `Não tem TV! <br> Não tem internet! <br> Não tem video-game! <br> Não tem NetFlix!`;
+        } else {
+            divResultado.innerHTML = `Sua mãe quer netos!`;
+        };
+    };
+</script>

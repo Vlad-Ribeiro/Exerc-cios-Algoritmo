@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a renda familiar:
+    <input type="number" name="" id="iptRenda"> <br>
+    Informe o valor da prestação:
+    <input type="number" name="" id="iptPrestacao"> <br>
+    <input type="button" value="Verificar financiamento" onclick="financiamento()"> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function financiamento() {
+        var renda = Number(iptRenda.value);
+        var prestacao = Number(iptPrestacao.value);
+        var percentual = (prestacao / renda) * 100;
+
+        divMensagem.innerHTML = `A prestação corresponde a ${percentual}% da renda familiar.`;
+
+        if (percentual > 30) {
+            divMensagem.innerHTML += ` <b style = "color: red">Será necessário complementar a renda familiar!</b>`;
+        };
+    };
+</script>

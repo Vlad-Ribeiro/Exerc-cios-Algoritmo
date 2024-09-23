@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe 3 notas: <br>
+    <input type="number" name="" id="iptN1">
+    <input type="number" name="" id="iptN2">
+    <input type="number" name="" id="iptN3"> <br>
+    <input type="button" value="Analisar desempenho" onclick="media()">
+    <div id="divMedia"></div>
+</body>
+</html>
+<script>
+    function media() {
+        var n1 = Number(iptN1.value)
+        var n2 = Number(iptN2.value)
+        var n3 = Number(iptN3.value)
+        var mediaNotas = (n1 + n2 + n3) / 3
+        divMedia.innerHTML = `Sua média foi de ${mediaNotas}!`
+        if (mediaNotas > 9.4) {
+            divMedia.innerHTML += ` Parabéns, você é fora de série!`
+        }
+    }
+</script>
