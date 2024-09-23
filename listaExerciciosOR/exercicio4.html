@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o modo de pagamento (débito, crédito, boleto ou dinheiro):
+    <input type="text" id="iptModoPagamento"> <br>
+    <button onclick="analisar()">Analisar compra</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var modoPagamento = iptModoPagamento.value;
+
+        if (modoPagamento == 'débito' || modoPagamento == 'dinheiro') {
+            divResultado.innerHTML = 'Você terá que pagar a vista'
+        } else if (modoPagamento == 'crédito' || modoPagamento == 'boleto') {
+            divResultado.innerHTML = 'Você poderá pagar parcelado'
+        } else {
+            divResultado.innerHTML = ''
+            alert('Informação inválida')
+        }
+    }
+</script>
