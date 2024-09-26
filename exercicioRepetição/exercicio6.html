@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quem é a pessoa que você mais ama?
+    <input type="text" id="iptPessoa"> <br>
+    Em número, quanto você ama essa pessoa?
+    <input type="number" name="" id="iptNumero"> <br>
+    <button onclick="expressar()">Expressar amor</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function expressar () {
+        var pessoa = iptPessoa.value
+        var numero = Number(iptNumero.value)
+
+        var mensagem = `${pessoa}, eu te amo! Sempre lembre disso! <br>`
+
+        for (i = 1; i <= numero; i++) {
+            divMensagem.innerHTML += `${i}. ${mensagem}`;
+        }
+    }
+</script>

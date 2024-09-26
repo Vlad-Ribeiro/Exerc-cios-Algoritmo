@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número entre 0 e 200:
+    <input type="number" name="" id="iptNumero" min="20" max="100"> <br>
+    <button onclick="love7()">Viva o 7!</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function love7() {
+        var numero = Number(iptNumero.value)
+
+        for (i = 0; i <= numero; i++) {
+            if (i % 7 == 0) {
+                divResultado.innerHTML += `${i} <br>`
+            }
+        }
+
+        if (numero < 0  || numero > 200) {
+            alert('Número inválido!')
+            divResultado.innerHTML = ``
+        }
+    }
+</script>

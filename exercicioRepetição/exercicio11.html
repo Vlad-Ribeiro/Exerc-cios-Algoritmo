@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quantas voltas um carro dará em uma corrida:
+    <input type="number" name="" id="iptVoltas"> <br>
+    <button onclick="iniciar()">Iniciar corrida</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function iniciar() {
+        var voltas = Number(iptVoltas.value)
+
+        var mensagem = ``
+
+        for(var i = 1; i <= voltas; i++) {
+            mensagem += `Carro dando a ${i}ª volta <br>`
+        }
+
+        divResultado.innerHTML = `${mensagem} Corrida finalizada!`
+    }
+</script>

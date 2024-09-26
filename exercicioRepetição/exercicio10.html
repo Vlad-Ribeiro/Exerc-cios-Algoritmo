@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número:
+    <input type="number" name="" id="iptNumero"> <br>
+    Informe um número maior que o anterior:
+    <input type="number" name="" id="iptNumero2"> <br>
+    <button onclick="lovePar()">S2 Pares</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function lovePar() {
+        var n1 = Number(iptNumero.value)
+        var n2 = Number(iptNumero2.value)
+
+        var mensagem = ``
+
+        for(i = n1; i <= n2; i++) {
+            if (i % 2 == 0) {
+                mensagem += `${i} <br>`
+            }
+        }
+
+        divResultado.innerHTML = mensagem;
+
+        if (n1 > n2) {
+            alert('Intervalo de números inválido!')
+            divResultado.innerHTML = ``
+        }
+    }
+</script>

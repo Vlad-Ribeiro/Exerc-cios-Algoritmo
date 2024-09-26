@@ -25,6 +25,12 @@
         var vr = Number(iptVR.value)
         var deslocamento = Number(iptDeslocamento.value)
 
-        
+        var mensagem = `A empresa ${empresa} está fora da sua lista`
+
+        if (bolsa >= 1800 || vr >= 20 || deslocamento <= 30) {
+            mensagem = `A empresa ${empresa} é uma de suas preferências`
+        }
+
+        divMensagem.innerHTML = mensagem
     }
 </script>

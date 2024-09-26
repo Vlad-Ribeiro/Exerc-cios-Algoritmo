@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a tabuada:
+    <select name="" id="sltTabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <br>
+    informe até que número a tabuada deve ser feita:
+    <input type="number" name="" id="iptLimite"> <br>
+    <button onclick="tabuada()">Ver tabuada</button>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function tabuada() {
+        var tabuada = Number(sltTabuada.value)
+        var limite = Number(iptLimite.value)
+
+        var mensagem = ``
+
+        for (i = 1; i <= limite; i++) {
+
+            if (i % 2 == 0){
+                mensagem += `<p style = 'color: blue'>${tabuada} x ${i} = ${tabuada * i}</p>`
+            } else {
+                mensagem += `<p style = 'color: red'>${tabuada} x ${i} = ${tabuada * i}</p>`
+            }
+            
+        }
+
+        divResultado.innerHTML = mensagem
+    }
+</script>
