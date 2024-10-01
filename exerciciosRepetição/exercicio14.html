@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um intervalo de números: <br>
+    <input type="number" name="" id="iptN1"> <br>
+    <input type="number" name="" id="iptN2"> <br>
+    <button onclick="analisar()">Curto 3 e 5</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var n1 = Number(iptN1.value)
+        var n2 = Number(iptN2.value)
+
+        var mensagem = ``
+
+        for (var i = n1; i <= n2; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                mensagem += `<b>É TRI! É PENTA!</b> <br>`
+            } else if (i % 5 == 0) {
+                mensagem += `<b>É PENTA!</b> <br>`
+            } else if (i % 3 == 0) {
+                mensagem += `<b>É TRI!</b> <br>`
+            } else {
+                mensagem += `${i} <br>`
+            }
+        }
+
+        if (n1 > n2) {
+            mensagem = ``
+            alert('Intervalo de números inválido')
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>
