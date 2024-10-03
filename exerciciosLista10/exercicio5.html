@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="jogar()">Jogar Jogador 1</button> <br>
+    <div id="divJogador1"></div> <br>
+    <div id="divJogador2"></div>
+</body>
+</html>
+<script>
+    function jogar() {
+        var jogador1 = Math.floor(Math.random * 2 + 1)
+        var jogador2 = Math.floor(Math.random * 2 + 1)
+
+        var mensagem1 = ``
+        var mensagem2 = ``
+
+        if (jogador1 == 1) {
+            divJogador1.innerHTML = `<img src = 'https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png' sytle = 'height: 100px; width: 100px'>`
+        } else if (jogador1 == 2) {
+            divJogador1.innerHTML = `<img src = 'https://img.lovepik.com/free-png/20211216/lovepik-back-of-hand-png-image_401704643_wh1200.png' style = 'height: 100px; width: 100px'>`
+        } else if (jogador1 == 3) {
+            divJogador1.innerHTML = `<img src = 'https://dustein.com.br/ppt-duda/midia/botao-tesoura.png' sytle = 'height: 100px; width: 100px'>`
+        }
+
+        if (jogador2 == 1) {
+            divJogador2.innerHTML = `<img src = 'https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png' sytle = 'height: 100px; width: 100px'>`
+        } else if (jogador2 == 2) {
+            divJogador2.innerHTML = `<img src = 'https://img.lovepik.com/free-png/20211216/lovepik-back-of-hand-png-image_401704643_wh1200.png' style = 'height: 100px; width: 100px'>`
+        } else if (jogador2 == 3) {
+            divJogador2.innerHTML = `<img src = 'https://dustein.com.br/ppt-duda/midia/botao-tesoura.png' sytle = 'height: 100px; width: 100px'>`
+        }
+
+
+    }
+</script>

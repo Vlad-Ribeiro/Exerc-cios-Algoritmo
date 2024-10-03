@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()">Jogar Dado</button> <br>
+    <div id="divDado" style="background-color: black; height: 100px; width: 100px; display: flex; align-items: center; color: white; justify-content: center;"></div>
+</body>
+</html>
+<script>
+    function sortear() {
+        var mensagem = ``
+
+        var aleatorio = Math.random()
+
+        var aleatorioInteiro = Math.floor(aleatorio * 20 + 1)
+
+        mensagem = aleatorioInteiro
+
+        divDado.innerHTML = mensagem
+    }
+</script>

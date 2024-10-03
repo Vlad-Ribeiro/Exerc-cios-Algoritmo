@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sortear()">Sortear Time</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function sortear() {
+        var mensagem = ``
+
+        var aleatorio = Math.random()
+
+        if (aleatorio < 0.26) {
+            mensagem = `<img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Santos_Logo.png/240px-Santos_Logo.png'
+            style = 'heigth: 150px; width: 150px'>`
+        } else if (aleatorio < 0.51) {
+            mensagem = `<img src = 'https://w7.pngwing.com/pngs/182/887/png-transparent-sao-paulo-f-c-hd-logo-thumbnail.png' 
+            style = 'width: 150px; heigth: 150px'>`
+        } else if (aleatorio < 0.76) {
+            mensagem = `<img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/2048px-Palmeiras_logo.svg.png' 
+            style = 'width: 150px; heigth: 150px'>`
+        } else if (aleatorio > 0.75) {
+            mensagem = `<img src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Corinthianssccp2023.png/800px-Corinthianssccp2023.png' 
+            style = 'width: 150px; heigth: 150px'>`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>
