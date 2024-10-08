@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="dado1()">Dado Jogador 1</button> <br>
+    <div id="divJogador1" style="height: 100px; width: 100px; background-color: black; color: white; display: flex;
+    align-items: center; justify-content: center;"></div> <br>
+    <button onclick="dado2()">Dado Jogador 2</button> <br>
+    <div id="divJogador2" style="height: 100px; width: 100px; background-color: black; color: white; display: flex; align-items: center; justify-content: center;"></div> <br>
+    <button onclick="comparar()">Comparar</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    var nDado1 = 0
+    var nDado2 = 0
+
+    function dado1() {
+        nDado1 = Math.floor(Math.random() * 6 + 1)
+        divJogador1.innerHTML = nDado1
+    }
+
+    function dado2 () {
+        nDado2 = Math.floor(Math.random() * 6 + 1)
+        divJogador2.innerHTML = nDado2
+    }
+
+    var mensagem = ``
+    
+
+
+</script>

@@ -6,35 +6,47 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="jogar()">Jogar Jogador 1</button> <br>
+    <button onclick="jogar()">Jogar</button> <br>
     <div id="divJogador1"></div> <br>
     <div id="divJogador2"></div>
+    <div id="divMensagem"></div>
 </body>
 </html>
 <script>
-    function jogar() {
-        var jogador1 = Math.floor(Math.random * 2 + 1)
-        var jogador2 = Math.floor(Math.random * 2 + 1)
+    var empates = 0
+    var pontuacao1 = 0
+    var pontuacao2 = 0
 
-        var mensagem1 = ``
-        var mensagem2 = ``
+    function jogar() {
+        var jogador1 = Math.floor(Math.random() * 3 + 1)
+        var jogador2 = Math.floor(Math.random() * 3 + 1)
 
         if (jogador1 == 1) {
-            divJogador1.innerHTML = `<img src = 'https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png' sytle = 'height: 100px; width: 100px'>`
+            divJogador1.innerHTML = `Jogador 1: <img src = 'https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png' sytle = 'heigth: 100px; width: 100px;'>`
         } else if (jogador1 == 2) {
-            divJogador1.innerHTML = `<img src = 'https://img.lovepik.com/free-png/20211216/lovepik-back-of-hand-png-image_401704643_wh1200.png' style = 'height: 100px; width: 100px'>`
+            divJogador1.innerHTML = `Jogador 1: <img src = 'https://img.lovepik.com/free-png/20211216/lovepik-back-of-hand-png-image_401704643_wh1200.png' style = 'heigth: 300px; width: 300px;'>`
         } else if (jogador1 == 3) {
-            divJogador1.innerHTML = `<img src = 'https://dustein.com.br/ppt-duda/midia/botao-tesoura.png' sytle = 'height: 100px; width: 100px'>`
+            divJogador1.innerHTML = `Jogador 1: <img src = 'https://dustein.com.br/ppt-duda/midia/botao-tesoura.png' sytle = 'heigth: 100px; width: 100px;'>`
         }
 
         if (jogador2 == 1) {
-            divJogador2.innerHTML = `<img src = 'https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png' sytle = 'height: 100px; width: 100px'>`
+            divJogador2.innerHTML = `Jogador 2: <img src = 'https://w7.pngwing.com/pngs/422/99/png-transparent-rock-paper-scissors-computer-icons-scissors-game-white-face-thumbnail.png' sytle = 'heigth: 100px; width: 100px;'>`
         } else if (jogador2 == 2) {
-            divJogador2.innerHTML = `<img src = 'https://img.lovepik.com/free-png/20211216/lovepik-back-of-hand-png-image_401704643_wh1200.png' style = 'height: 100px; width: 100px'>`
+            divJogador2.innerHTML = `Jogador 2: <img src = 'https://img.lovepik.com/free-png/20211216/lovepik-back-of-hand-png-image_401704643_wh1200.png' style = 'heigth: 300px; width: 300px;'>`
         } else if (jogador2 == 3) {
-            divJogador2.innerHTML = `<img src = 'https://dustein.com.br/ppt-duda/midia/botao-tesoura.png' sytle = 'height: 100px; width: 100px'>`
+            divJogador2.innerHTML = `Jogador 2: <img src = 'https://dustein.com.br/ppt-duda/midia/botao-tesoura.png' sytle = 'heigth: 100px; width: 100px;'>`
         }
 
+        if (jogador1 == jogador2) {
+            empates++
+        } else if ((jogador1 == 3 && jogador2 == 2) || (jogador1 == 2 && jogador2 == 1) || (jogador1 == 1 && jogador2 == 3)){
+            pontuacao1++
+        }else if ((jogador1 == 2 && jogador2 == 3) || (jogador1 == 1 && jogador2 == 2) || (jogador1 == 3 && jogador2 == 1)) {
+            pontuacao2++
+        }
 
+        var mensagem = `Pontuação: J1 = ${pontuacao1} V - ${empates} E | J2 = ${pontuacao2} V - ${empates} E`
+
+        divMensagem.innerHTML = mensagem
     }
 </script>
