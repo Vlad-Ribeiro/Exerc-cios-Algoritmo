@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe seu nome:
+    <input type="text" id="iptNome"> <br>
+    Informe três números de 1 a 100: <br>
+    Primeiro número:
+    <input type="number" name="" id="iptNum1"> <br>
+    Segundo número:
+    <input type="number" name="" id="iptNum2"> <br>
+    Terceiro número:
+    <input type="number" name="" id="iptNum3"> <br>
+    <button onclick="sortear()">Sortear</button> <br>
+    <div id="divSorteio"></div>
+</body>
+</html>
+<script>
+    var contador = 0
+
+    function sortear() {
+        var n1 = Number(iptNum1.value)
+        var n2 = Number(iptNum2.value)
+        var n3 = Number(iptNum3.value)
+        var nome = iptNome.value
+
+        contador++
+
+        if (n1, n2, n3 < 1 || n1, n2, n3 > 100) {
+            alert('Número inválido')
+        } else {
+            var aleatorio = Math.floor(Math.random() * 100 + 1)
+
+            if (aleatorio == n1 || aleatorio == n2 || aleatorio == n3) {
+                divSorteio.innerHTML = `Parabéns, ${nome} você foi sorteado(a) após ${contador} sorteios! Número sorteado: ${aleatorio}`
+            } else {
+                divSorteio.innerHTML = `Número sorteado: ${aleatorio} <br> Você não foi sorteado :((`
+            }
+        }
+    }
+</script>

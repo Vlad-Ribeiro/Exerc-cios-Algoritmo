@@ -1,0 +1,56 @@
+</head>
+<body>
+    <button onclick="avaliar()">Avaliar</button> <br>
+    <div id="divAvaliar"></div> <br>
+    <button onclick="verificar()">Verificar média</button> <br>
+    <div id="divVerificar"></div>
+</body>
+</html>
+<script>
+    var aleatorio = 0
+    var soma = 0
+    var contador = 0
+
+    function avaliar() {
+        aleatorio = (Math.random() * 5).toFixed(1)
+
+        var mensagem = `Nota recebida: ${aleatorio} <br>`
+
+        if (aleatorio <= 0.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://png.pngtree.com/png-vector/20240623/ourmid/pngtree-very-sad-crying-emoji-png-image_12820189.png'>`
+        } else if (aleatorio > 0.5 && aleatorio <= 1.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://i.pinimg.com/474x/48/80/9b/48809b84353e9aebef7b6f3d7c3e1263.jpg'>`
+        } else if (aleatorio > 1.5 && aleatorio <= 3.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://images.emojiterra.com/google/android-11/512px/1f610.png'>`
+        } else if (aleatorio > 3.5 && aleatorio <= 4.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://images.vexels.com/content/134789/preview/happy-smile-emoji-emoticon-icon-c8c1f7.png'>`
+        } else {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://i.pinimg.com/originals/64/d2/b1/64d2b1c4242fc4751c05006d16a0f877.jpg'>`
+        }
+
+        soma += Number(aleatorio)
+        contador++
+
+        divAvaliar.innerHTML = mensagem
+    }
+
+    function verificar() {
+        var media = (soma / contador).toFixed(1)
+
+        var mensagem = `Média: ${media} <br>`
+
+        if (media <= 0.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://png.pngtree.com/png-vector/20240623/ourmid/pngtree-very-sad-crying-emoji-png-image_12820189.png'>`
+        } else if (media > 0.5 && media <= 1.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://i.pinimg.com/474x/48/80/9b/48809b84353e9aebef7b6f3d7c3e1263.jpg'>`
+        } else if (media > 1.5 && media <= 3.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://images.emojiterra.com/google/android-11/512px/1f610.png'>`
+        } else if (media > 3.5 && media <= 4.5) {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://images.vexels.com/content/134789/preview/happy-smile-emoji-emoticon-icon-c8c1f7.png'>`
+        } else {
+            mensagem += `<img style = 'width: 50px; height: 50px;' src = 'https://i.pinimg.com/originals/64/d2/b1/64d2b1c4242fc4751c05006d16a0f877.jpg'>`
+        }
+
+        divVerificar.innerHTML = mensagem
+    }
+</script>

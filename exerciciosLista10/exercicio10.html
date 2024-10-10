@@ -29,8 +29,18 @@
         divJogador2.innerHTML = nDado2
     }
 
-    var mensagem = ``
     
 
+    function comparar() {
+        var mensagem = `Empate!`
+    
+        if (nDado1 > nDado2) {
+            mensagem = `Jogador 1 venceu!`
+        } else if (nDado2 > nDado1) {
+            mensagem = `Jogador 2 venceu!`
+        }
+
+        divResultado.innerHTML = mensagem
+    }
 
 </script>

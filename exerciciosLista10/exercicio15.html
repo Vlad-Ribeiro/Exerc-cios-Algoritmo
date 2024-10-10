@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="pPar">Números pares: 0 </p><br>
+    <p id="pImpar">Números impares: 0 </p> <br>
+    <button onclick="sortear()">Sortear número</button> <br>
+    <div id="divNumero"></div>
+</body>
+</html>
+<script>
+    var par = 0
+    var impar = 0
+
+    function sortear() {
+        var numero = Math.floor(Math.random() * -21 + -9 )
+
+        divNumero.innerHTML = numero
+
+        if (numero % 2 == 0) {
+            par++
+            pPar.innerHTML = `Números pares: ${par}`
+        } else {
+            impar++
+            pImpar.innerHTML = `Números impares: ${impar}`
+        }
+    }
+</script>
