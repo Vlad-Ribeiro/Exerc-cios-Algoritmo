@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="slcPassageiro">
+        <option value="comum">Comum</option>
+        <option value="estudante">Estudante</option>
+        <option value="idoso">Idoso / PNE</option>
+    </select>
+    <br>
+    <select name="" id="slcPassagem">
+        <option value="unica">Passagem única</option>
+        <option value="integrada">Passagem integração</option>
+    </select>
+    <br>
+    <button onclick="simular()">Simular Preço</button> <br>
+    <div id="divSimulacao"></div>
+</body>
+</html>
+<script>
+    function simular() {
+        var passageiro = slcPassageiro.value
+        var passagem = slcPassagem.value
+
+        var passagemUnica = 4.4
+        var passagemIntegrada = 5.9
+
+        var mensagem = `Valor da passagem: R$ 0`
+
+        if (passageiro == 'comum') {
+            if (passagem == 'unica') {
+                mensagem = `Valor da passagem: ${passagemUnica}`
+            } else {
+                mensagem = `Valor da passagem: ${passagemIntegrada}`
+            }
+        } else if (passageiro == 'estudante') {
+            if (passagem == 'unica') {
+                mensagem = `Valor da passagem: ${passagemUnica / 2}`
+            } else {
+                mensagem = `Valor da passagem: ${passagemIntegrada / 2}`
+            }
+        }
+
+        divSimulacao.innerHTML = mensagem
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de passageiros: <input type="number" name="" id="iptPassageiro"> <br>
+    Informe quantos passageiros o veículo suporta: <input type="number" name="" id="iptQtdPass"> <br>
+    <button onclick="carona()">#PartiuCarona</button>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function carona() {
+        var passageiro = Number(iptPassageiro.value)
+        var qtdPass = Number(iptQtdPass.value)
+
+        var mensagem = ``
+
+        for(i = 1; i <= passageiro; i++) {
+
+            if ( i == 1) {
+                mensagem += ` Entrou o ${i}º passageiro (que é o motorista) <br>`
+            }else if (i > qtdPass) {
+                mensagem += `O ${i}º passageiro terá que esperar <br>`
+            } else {
+                mensagem += `Entrou o ${i}º passageiro <br>`
+            }
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Login: <input type="text" id="iptLogin"> <br>
+    Senha: <input type="password" name="" id="iptSenha"> <br>
+    Informação: <input type="text" id="iptInfo"> <br>
+    <button onclick="autenticar()">Autenticar</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var contador = 3
+
+    function autenticar() {
+        var login = iptLogin.value
+        var senha = iptSenha.value
+        var info = iptInfo.value
+
+        var mensagem = ``
+
+        if (contador == 0) {
+            mensagem = `Usuário BLOQUEADO! Procure seu gerente.`
+            contador = 0
+        } else if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')) {
+            mensagem = `Usuário autenticado`
+            contador = 3
+        } else {
+            contador--
+            mensagem = `Falha na autenticação <br> Você ainda tem ${contador} tentativa(s)`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>

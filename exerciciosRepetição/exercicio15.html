@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe sua idade: <input type="number" name="" id="iptIdade" onkeyup="contagem()"> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function contagem() {
+        var idade = Number(iptIdade.value)
+
+        var mensagem = ``
+
+        for(i = 0; i <= idade; i++) {
+            mensagem += `${i} anos`
+
+            if (i <= 4 && i >= 0) {
+                mensagem += `(Primeira infância) <br>`
+            } else if (i <= 6 && i > 4) {
+                mensagem += `(Pré-escolar) <br>`
+            } else if (i <= 10 && i > 6) {
+                mensagem += `(Segunda infância) <br>`
+            } else if (i <= 18 && i > 10) {
+                mensagem += `(Adolescência) <br>`
+            } else if (i <= 50 && i > 18) {
+                mensagem += `(Adulto) <br>`
+            } else if (i <= 100 && i > 50) {
+                mensagem += `(Melhor idade) <br>`
+            } else if (i > 100) {
+                mensagem += `(Matusalém) <br>`
+            }
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>
