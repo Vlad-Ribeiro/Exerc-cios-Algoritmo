@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Salário:
+    <input type="number" name="" id="iptSalario"> <br>
+    Adicional mensal:
+    <input type="number" name="" id="iptAdicional"> <br>
+    Bônus:
+    <input type="number" name="" id="iptBonus"> <br>
+    <button onclick="analisar()">Analisar minha renda</button> <br>
+    <div id="divAnaliseRenda"></div>
+</body>
+</html>
+<script>
+    function analisar() {
+        var salario = Number(iptSalario.value);
+        var adicional = Number(iptAdicional.value);
+        var bonus = Number(iptBonus.value);
+
+        var salarioBruto = salario + adicional + bonus;
+        var impostoDeRenda = 0;
+
+        if (salarioBruto >= 10000) {
+            impostoDeRenda = salarioBruto * 0.125;
+        };
+
+        var inss = (salarioBruto - impostoDeRenda) * 0.1;
+        var fgts = (salarioBruto - impostoDeRenda) * 0.08;
+
+        var salarioLiquido = salarioBruto - impostoDeRenda - inss - fgts;
+
+        divAnaliseRenda.innerHTML = `ANÁLISE DA SUA RENDA <br>
+        Com o salário de R$ ${salario}, com adicional de R$ ${adicional} e bônus de R$ ${bonus}, você tem: <br>
+        Bruto: R$ ${salarioBruto} <br>
+        IR: R$ ${impostoDeRenda} <br>
+        INSS: R$ ${inss} <br>
+        FGTS: R$ ${fgts} <br>
+        Líquido: R$ ${salarioLiquido} <br>`;
+
+        if (salarioLiquido > 2500) {
+            var salario15 = salarioLiquido * 0.15;
+
+            divAnaliseRenda.innerHTML += `Com a renda de R$ ${salarioLiquido}, é recomendado poupar R$ ${salario15}, para que em um ano tenha poupado R$ ${salario15 * 12}`;
+        } else {
+            divAnaliseRenda.innerHTML += `Com a renda de R$ ${salarioLiquido}, é recomendado obter renda extra para realizar uma poupança.`;
+        };
+    };
+</script>

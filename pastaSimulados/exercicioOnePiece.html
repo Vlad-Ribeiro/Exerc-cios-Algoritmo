@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Episódio que deseja começar assistindo: <input type="number" name="" id="iptEp"> <br>
+    Quantidade de tempo disponível: <input type="number" name="" id="iptTempo"> <br>
+    Unidade de tempo em: 
+    <select name="" id="slcUniTemp">
+        <option value="minuto">Minutos</option>
+        <option value="hora">Horas</option>
+    </select> <br>
+    Pular abertura? 
+    <select name="" id="slcAbertura">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select> <br>
+    Pular encerramento?
+    <select name="" id="slcEncerramento">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select> <br>
+    <button onclick="assistir()">Assistir Episódios</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    function assistir() {
+        var ep = Number(iptEp.value)
+        var tempo = Number(iptTempo.value)
+        var uniTemp = slcUniTemp.value
+        var abertura = slcAbertura.value
+        var encerramento = slcEncerramento.value
+
+        var mensagem = ``
+
+        var epTotal = 24
+
+        if (abertura == 'sim') {
+            epTotal - 2
+        }
+
+        if (encerramento == 'sim') {
+            epTotal - 2
+        }
+
+        if (uniTemp == 'hora') {
+            tempo * 60
+        }
+
+        var qtdEps = tempo / epTotal
+
+        for (i = 1; i <= epTotal; i++) {
+            mensagem += `Minuto ${i}: `
+        }
+
+        divMensagem.innerHTML = mensagem
+
+        if (ep > 1100 || ep < 1) {
+            alert('Número do episódio inválido, informar entre 1 e 1100')
+            divMensagem.innerHTML = ``
+        }
+    }
+</script>
