@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número teto (deve ser postivo e maior que zero):
+    <input type="number" name="" id="iptTeto" min="1"> <br>
+    Informe um número (deve ser menor ou igual ao anterior, não pode ser negativo):
+    <input type="number" name="" id="iptNumero"> <br>
+    <button onclick="somar()">Somar Números</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function somar() {
+        var teto = Number(iptTeto.value)
+        var numero = Number(iptNumero.value) 
+
+        var mensagem = ``
+        var total = 0
+
+        for (i = 0; i <= teto; i++) {
+            if (i % numero == 0) {
+                mensagem += `${i} <br>`
+                total += i
+            }
+        }
+
+        divResultado.innerHTML = `${mensagem} <br> Soma dos Múltiplos: ${total}`
+    }
+</script>

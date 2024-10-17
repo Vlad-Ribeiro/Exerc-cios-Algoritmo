@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe um número piso:
+    <input type="number" name="" id="iptPiso"> <br>
+    Informe um número teto:
+    <input type="number" name="" id="iptTeto"> <br>
+    Informe um número entre 3 e 10:
+    <input type="number" name="" id="iptNumero"> <br>
+    <button onclick="contar()">Contar</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function contar() {
+        var piso = Number(iptPiso.value)
+        var teto = Number(iptTeto.value)
+        var numero = Number(iptNumero.value)
+
+        var mensagem = ``
+
+        var total = 0
+        var contador = 0
+        var menor = 0
+        var maior = 0
+
+        for (i = piso; i <= teto; i++) {
+            if (i % numero == 0) {
+                mensagem += `${i}, `
+                total += i
+                maior = i
+                contador++
+            }
+
+            if (contador == 1 && i % numero == 0) {
+                menor += i
+            }
+        }
+
+        mensagem += `<br> QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${contador} <br>
+        SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${total} <br>
+        MÉDIA DOS NÚMEROS EXIBIDOS: ${total / contador} <br>
+        MAIOR NÚMERO EXIBIDO: ${maior} <br>
+        MENOR NÚMERO EXIBIDO: ${menor}`
+
+        divResultado.innerHTML = mensagem
+
+
+        if (piso < 1 || piso >= teto) {
+            alert('Número piso inválido: Tem que ser maior que 1 e menor ao Número teto')
+            divResultado.innerHTML = ``
+        }
+
+        if (teto <= piso || teto > 100) {
+            alert('Número teto inválido: Tem que ser maior que número piso e menor que 100')
+            divResultado.innerHTML = ``
+        }
+
+        if (numero < 3 || numero > 10) {
+            alert ('Número inválido: Tem que estar entre 3 e 10')
+            divResultado.innerHTML = ``
+        }
+    }
+</script>
