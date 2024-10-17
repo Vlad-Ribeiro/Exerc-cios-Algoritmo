@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quanto dinheiro guardar por mês:
+    <input type="number" name="" id="iptDinheiro"> <br>
+    Informe por quantos meses guardar:
+    <input type="number" name="" id="iptMeses"> <br>
+    <button onclick="grana()">Acompanhar Grana</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+
+    function grana() {
+        var meses = Number(iptMeses.value)
+        var dinheiro = Number(iptDinheiro.value)
+
+        var mensagem = ``
+        var total = 0
+
+        for(i = 1; i <= meses; i++) {
+            if (i % 3 == 0) {
+                total += dinheiro
+                total += total * 0.01
+                mensagem += `${i}º Mês: R$ ${total} * <br>`
+            } else {
+                total += dinheiro
+                mensagem += `${i}º Mês: R$ ${total} <br>`
+            }
+        }
+
+        mensagem += `Total guardado: ${total}`
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>

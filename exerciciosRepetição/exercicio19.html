@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe quantas xícaras de café com leite você já tomou:
+    <input type="number" name="" id="iptXicara"> <br>
+    <button onclick="calculo()">Ver a quantidade</button> <br>
+    <div id="divXicaras"></div>
+</body>
+</html>
+<script>
+    function calculo() {
+        var xicara = Number(iptXicara.value)
+
+        var mensagem = ``
+        var cafe = `<img src = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfWF4-LjFLsjvY7nRQZoAq9H-jzGFHHmM39xLBmu6B5rGIzrER1rEFcu-vNMvz0MnqBZ0gluHXoYAeK_xOinLlazsvPP99fM1D1gt-awD1_mfAEo5BYi5krMTknROMZ-yT13alInTfYn_BnyS2fhYiBjEUmCIOf-IE4xYc7xShVFd2toFIlGyqfGMbGG8t/s650/Colher%20de%20caf%C3%A9.jpg' style = 'width: 100px; height: 100px'>`
+        var leite = `<img src = 'https://minhasaude.proteste.org.br/wp-content/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg' style = 'width: 100px; height: 100px;'>`
+
+        for (i = 1; i <= xicara; i++) {
+            mensagem += `${leite} ${cafe} ${cafe}`
+        }
+
+        divXicaras.innerHTML = mensagem
+    }
+</script>

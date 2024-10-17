@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de elefantes:
+    <input type="number" name="" id="iptElefante"> <br>
+    <button onclick="atazanar()">Atazanar a médium</button> <br>
+    <div id="divElefantes"></div>
+</body>
+</html>
+<script>
+    function atazanar() {
+        var elefante = Number(iptElefante.value)
+
+        var mensagem = ``
+
+        for (i = 2; i <= elefante; i++) {
+            mensagem += ` <br> Um elefante incomoda muita gente`
+
+            if (i > 1) {
+                mensagem += `<br> ${i} elefantes`
+            } 
+
+            for (j = 1; j <= i; j++) {
+                if (i > 1) {
+                    mensagem += ` incomodam,`
+                }
+            }
+
+            mensagem += ` muito mais!`
+        }
+
+        divElefantes.innerHTML = mensagem
+    }
+</script>
