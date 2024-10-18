@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe a quantidade de Macarons: <input type="number" name="" id="iptMacarons"> Informe o preço: <input type="number" name="" id="iptPrecoMacarons"> <br>
+    Informe a quantidade de Brigadeiros: <input type="number" name="" id="iptBrigadeiros"> Informe o preço: <input type="number" name="" id="iptPrecoBrigadeiros"> <br>
+    Informe a quantidade de Cupcakes: <input type="number" name="" id="iptCupcakes"> Informe o preço: <input type="number" name="" id="iptPrecoCupcakes"> <br>
+    Informe a quantidade de Cheesecakes: <input type="number" name="" id="iptCheesecakes"> Informe o preço: <input type="number" name="" id="iptPrecoCheesecakes"> <br>
+    <button onclick="verificar()">Verificar vendas</button> <br>
+    <div id="divVendas"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var macarons = Number(iptMacarons.value)
+        var precoMacarons = Number(iptPrecoMacarons.value)
+
+        var brigadeiros = Number(iptBrigadeiros.value)
+        var precoBrigadeiros = Number(iptPrecoBrigadeiros.value)
+
+        var cupcakes = Number(iptCupcakes.value)
+        var precoCupcakes = Number(iptPrecoCupcakes.value)
+
+        var cheesecakes = Number(iptCheesecakes.value)
+        var precoCheesecakes = Number(iptPrecoCheesecakes.value)
+
+        var mensagem = `<br>`
+
+        var totalDeDoces = macarons + brigadeiros + cupcakes + cheesecakes
+
+        for (i = 1; i <= totalDeDoces; i++) {
+            mensagem += `Venda ${i} - `
+
+            if (macarons > 0 && i <= macarons) {
+                mensagem += `<img src = 'https://static.itdg.com.br/images/1200-630/06edb6a571a067e7c6029dbde006d1b5/275301-original.jpg' style = 'width: 50px; height: 50px'> - R$ ${precoMacarons} <br>`
+            } else if (brigadeiros > 0 && i <= brigadeiros + macarons) {
+                mensagem += `<img src = 'https://i.panelinha.com.br/i1/228-q-2859-brigadeiro.webp' style = 'width: 50px; height: 50px'>  - R$ ${precoBrigadeiros} <br>`
+            } else if (cupcakes > 0 && i <= cupcakes + brigadeiros + macarons) {
+                mensagem += `<img src = 'https://funcakes.com/content/uploads/2022/06/cupcake_strooisels_regenboog.jpg' style = 'width: 50px; height: 50px'>  - R$ ${precoCupcakes} <br>`
+            } else if (cheesecakes > 0 && i <= cheesecakes + cupcakes + brigadeiros + macarons) {
+                mensagem += `<img src = 'https://hips.hearstapps.com/hmg-prod/images/raspberry-cheesecake-1674225141.jpeg' style = 'width: 50px; height: 50px'>  - R$ ${precoCheesecakes} <br>`
+            }
+        }
+
+        var totalVenda = (precoMacarons * macarons) + (precoBrigadeiros * brigadeiros) + (precoCupcakes * cupcakes) + (precoCheesecakes * cheesecakes)
+
+        mensagem += `<br> Com a quantidade de ${macarons} Macarons, ${brigadeiros} Brigadeiros, ${cupcakes} Cupcakes e ${cheesecakes} Cheesecakes, a venda totalizará R$ ${totalVenda}`
+
+        divVendas.innerHTML = mensagem
+
+        if (precoBrigadeiros < 0 || precoCheesecakes < 0 || precoCupcakes < 0 || precoMacarons < 0 || brigadeiros < 0 || cheesecakes < 0 || cupcakes < 0 || macarons < 0) {
+            alert(`Preço inválido ou Quantidade de doce inválida! Verifique se algum valor está negativo!`)
+            divVendas.innerHTML = ``
+        }
+    }
+</script>

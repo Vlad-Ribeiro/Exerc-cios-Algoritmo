@@ -29,37 +29,64 @@
 </html>
 <script>
     function assistir() {
-        var ep = Number(iptEp.value)
-        var tempo = Number(iptTempo.value)
+        var epComeco = Number(iptEp.value)
+        var tempoTotal = Number(iptTempo.value)
         var uniTemp = slcUniTemp.value
         var abertura = slcAbertura.value
         var encerramento = slcEncerramento.value
 
         var mensagem = ``
 
-        var epTotal = 24
+        var tempoEp = 24
 
-        if (abertura == 'sim') {
-            epTotal - 2
+        if (abertura == "sim") {
+            tempoEp -= 2
         }
 
-        if (encerramento == 'sim') {
-            epTotal - 2
+        if (encerramento == "sim") {
+            tempoEp -= 2
         }
 
         if (uniTemp == 'hora') {
-            tempo * 60
+            tempoTotal *= 60
         }
 
-        var qtdEps = tempo / epTotal
+        var qtdEps = tempoTotal / tempoEp
 
-        for (i = 1; i <= epTotal; i++) {
-            mensagem += `Minuto ${i}: `
+        for (i = epComeco; i <= qtdEps + epComeco - 1; i++) {
+            mensagem += `<br>Episódio ${i} <br>`
+            
+            var contador = 0
+            for (j = 1; j <= tempoEp; j++) {
+                contador++
+
+                mensagem += `Minuto ${j}: `
+
+                if (abertura == 'nao' && (contador == 1 || contador == 2)) {
+                    mensagem += `Assistindo abertura <br>`
+                }
+
+                if (abertura == 'nao' && encerramento == 'nao' && (contador == 23 || contador == 24)) {
+                    mensagem += `Assistindo encerramento <br>`
+                } else if (abertura == 'sim' && encerramento == 'nao' && (contador == 21 || contador == 22)) {
+                    mensagem += `Assistindo encerramento <br>`
+                }
+                
+                if (abertura == 'sim' && encerramento == 'sim') {
+                    mensagem += `Assistindo episódio <br>`
+                } else if (abertura == 'sim' && (contador < 21)) {
+                    mensagem += `Assistindo episódio <br>`
+                } else if (abertura == 'nao' && contador < 23 && contador > 2) {
+                    mensagem += `Assistindo episódio <br>`
+                }
+            }
         }
+
+        mensagem += `<br> Fim dos episódios <br> Foram assistidos: ${qtdEps} episódios`
 
         divMensagem.innerHTML = mensagem
 
-        if (ep > 1100 || ep < 1) {
+        if (epComeco > 1100 || epComeco < 1) {
             alert('Número do episódio inválido, informar entre 1 e 1100')
             divMensagem.innerHTML = ``
         }
