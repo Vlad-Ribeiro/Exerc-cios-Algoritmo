@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite o nome de uma fruta:
+    <input type="text" id="iptFruta"> <br>
+    <button onclick="verificar()">Verificar Fruta</button> <br>
+    <div id="divLista"></div>
+</body>
+</html>
+<script>
+    var listaFrutas = ['abacate', 'abacaxi', 'maçã', 'morango', 'banana', 'melancia', 'melão', 'laranja']
+
+    function verificar() {
+        var fruta = iptFruta.value
+
+        if (listaFrutas.includes(fruta.toLowerCase())) {
+            divLista.innerHTML = `A fruta ${fruta} está na lista`
+        } else {
+            divLista.innerHTML = `A fruta ${fruta} não está na lista`
+        }
+    }
+</script>

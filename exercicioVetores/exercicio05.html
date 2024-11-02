@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Cadastre seus filmes favoritos:
+    <input type="text" id="iptFilme"> <br>
+    <button onclick="cadastrar()">Cadastrar</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var listaFilmes = []
+
+    function cadastrar() {
+        var filme = iptFilme.value
+
+        listaFilmes.push(filme)
+
+        var tamanhoLista = listaFilmes.length
+
+        var mensagem = ``
+
+        if (tamanhoLista < 1) {
+            mensagem = `Cadastre alguns dos seus filmes favoritos!`
+        } else if (tamanhoLista <= 2) {
+            mensagem += `Seu filme favorito: ${listaFilmes[0]} <br>
+
+            Seu 3º filme favorito: Ainda não existe <br>
+
+            Total de filmes cadastrados: ${tamanhoLista} `
+        } else {
+            mensagem = `Seu filme favorito: ${listaFilmes[0]} <br>
+
+            Seu 3º filme favorito: ${listaFilmes[2]} <br>
+
+            Total de filmes cadastrados: ${tamanhoLista} `
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>

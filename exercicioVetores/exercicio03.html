@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite o nome dos bairros onde morou:
+    <input type="text" id="iptBairro"> <br>
+    <button onclick="cadastrar()">Cadastrar bairro</button> <br>
+    Digite por contagem o local:
+    <input type="number" name="" id="iptNumeroBairro"> <br>
+    <button onclick="relembrar()">Relembrar moradia</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var listaBairro = []
+
+    function cadastrar() {
+        var bairro = iptBairro.value
+
+        listaBairro.push(bairro.toLowerCase())
+    }
+
+    function relembrar() {
+        var numBairro = Number(iptNumeroBairro.value)
+
+        var qtdBairro = listaBairro.length
+
+        if (numBairro <= qtdBairro) {
+            divMensagem.innerHTML = listaBairro[numBairro - 1]
+        } else {
+            divMensagem.innerHTML = `Você ainda não morou num ${numBairro}º bairro!`
+        }
+    }
+</script>

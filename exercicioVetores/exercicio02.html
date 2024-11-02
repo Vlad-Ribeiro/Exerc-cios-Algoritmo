@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Destino viagem: 
+    <input type="text" id="iptDestino"> <br>
+    <button onclick="adicionar()">Adicionar</button> <br>
+    <button onclick="primeira()">Primeira Viagem</button>
+    <button onclick="terceira()">Terceira Viagem</button>
+    <button onclick="ultima()">Ultima Viagem</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var listaDestino = []
+
+    var mensagem = ``
+
+    function adicionar() {
+        var destino = iptDestino.value
+
+        listaDestino.push(destino.toLowerCase())
+    }
+
+    function primeira() {
+        
+        if (listaDestino.length < 1) {
+            mensagem = `Ainda não viajou`
+        } else {
+            mensagem = listaDestino[0]
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function terceira() {
+
+        if (listaDestino.length < 3) {
+            mensagem = `Ainda não viajou`
+        } else {
+            mensagem = listaDestino[2]
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function ultima() {
+
+        if (listaDestino.length < 1) {
+            mensagem = `Ainda não viajou`
+        } else {
+            mensagem = listaDestino[listaDestino.length - 1]
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe os filmes que mais gosta em ordem decrescente:
+    <input type="text" id="iptFilme"> <br>
+    <button onclick="cadastrar()">Cadastrar filme</button> <br>
+    <button onclick="visualizar()">Ver filmes favoritos</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html> 
+<script>
+    var listaFilmes = []
+
+    function cadastrar() {
+        var filme = iptFilme.value
+
+        listaFilmes.push(filme)
+    }
+
+    function visualizar() {
+        var mensagem = ``
+
+        mensagem = `${listaFilmes} <br> Total: ${listaFilmes.length} <br> Filme favorito: ${listaFilmes[0]} <br> Filme que menos gosta: ${listaFilmes[listaFilmes.length - 1]}`
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>

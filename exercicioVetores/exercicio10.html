@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Registre os ônibus pegos durante a semana:
+    <input type="text" id="iptBus"> <br>
+    <button onclick="gravar()">Gravar Busão</button> <br>
+    <div id="divMensagem"></div> <br>
+    <button onclick="pesquisar()">Pesquisar</button> <br>
+    <div id="divMensagem2"></div>
+</body>
+</html>
+<script>
+    var listaBus = [];
+
+    function gravar() {
+        var bus = iptBus.value;
+
+        listaBus.push(bus);
+
+        var mensagem = ``
+
+        for(i = listaBus.length - 1; i >= 0; i--) {
+            mensagem += `${listaBus[i]} <br>`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function pesquisar() {
+        
+    }
+</script>

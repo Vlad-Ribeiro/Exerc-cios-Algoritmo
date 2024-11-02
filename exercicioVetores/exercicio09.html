@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o nome dos projetos que já desenvovel:
+    <input type="text" id="iptProjeto"> <br>
+    <button onclick="registrar()">Registrar projeto</button> <br>
+    <div id="divMensagem"></div>
+    <button onclick="mostrar()">Mostrar projetos</button> <br>
+    <div id="divMensagem2"></div>
+</body>
+</html>
+<script>
+    var listaProjetos = []
+
+    function registrar() {
+        var projeto = iptProjeto.value
+
+        listaProjetos.push(projeto)
+
+        var mensagem = `Você já fez ${listaProjetos.length}. `
+
+        if (listaProjetos.length <= 4) {
+            mensagem += `Por isso você é um profissional Júnior <br>`
+        } else if (listaProjetos.length <= 12) {
+            mensagem += `Por isso você é um profissional Pleno <br>`
+        } else {
+            mensagem += `Por isso você é um profissional Sênior <br>`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function mostrar() {
+
+        var mensagem = ``
+
+        for(i = listaProjetos.length - 1; i >= 0; i--) {
+            mensagem += `${listaProjetos[i]} <br>`
+        }
+
+        divMensagem2.innerHTML = mensagem
+    }
+</script>
