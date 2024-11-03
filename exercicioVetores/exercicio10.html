@@ -10,6 +10,8 @@
     <input type="text" id="iptBus"> <br>
     <button onclick="gravar()">Gravar Busão</button> <br>
     <div id="divMensagem"></div> <br>
+    Pesquise se já pegou alguma linha registrada acima:
+    <input type="text" id="iptLinha"> <br>
     <button onclick="pesquisar()">Pesquisar</button> <br>
     <div id="divMensagem2"></div>
 </body>
@@ -32,6 +34,26 @@
     }
 
     function pesquisar() {
-        
+        var linha = iptLinha.value
+
+        var cont = 0
+        var mensagem = ``
+
+        if (listaBus.includes(linha)) {
+            var posicao = ``
+
+            for (i = 0; i < listaBus.length; i++) {
+                if (listaBus[i] == linha) {
+                    cont++
+                    posicao += `${i + 1}, `
+                }
+            }
+
+            mensagem = `Você já pegou essa linha ${cont} vezes, nessa ordem: ${posicao}`
+        } else {
+            mensagem = `Você nunca pegou essa linha`
+        }
+
+        divMensagem2.innerHTML = mensagem
     }
 </script>

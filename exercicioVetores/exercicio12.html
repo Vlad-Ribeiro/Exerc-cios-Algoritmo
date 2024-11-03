@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o nome de um dos seus filhos:
+    <input type="text" id="iptNome"> <br>
+    <button onclick="cadastrar()">Cadastrar</button> <br>
+    <button onclick="atualizar()">Atualizar Família</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var listaNomes = []
+
+    function cadastrar() {
+        var nome = iptNome.value
+
+        if (listaNomes.includes(nome)) {
+            alert("Não pode mais de 1 filho com o mesmo nome!")
+        } else {
+            listaNomes.push(nome)
+        }
+    }
+
+    function atualizar() {
+        var mensagem = `Você tem ${listaNomes.length} filhos <br> Seu custo mensal será aproximadamente R$${listaNomes.length * 3000} se colocá-los em escola particular ou R$${listaNomes.length * 1500} se eles estudarem em escola pública`
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>
