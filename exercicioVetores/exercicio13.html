@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Indique o resultado:
+    <select name="" id="slcResultado">
+        <option value="1">Vitória</option>
+        <option value="2">Empate</option>
+        <option value="3">Derrota</option>
+    </select> <br>
+    <button onclick="registrar()">Registrar Jogo</button> <br>
+    <div id="divMensagem"></div> <br>
+    <input type="number" oninput="indicar()" placeholder="Indique qual jogo deseja saber o resultado" id="iptIndicacao"> <br>
+    <div id="divIndicacao"></div>
+</body>
+</html>
+<script>
+    var listaResultado = []
+
+    function registrar() {
+        var resultado = slcResultado.value
+
+        listaResultado.push(resultado)
+
+        var mensagem = ``
+
+        var contVit = 0
+        var contEmp = 0
+        var contDer = 0
+
+        for (i = 0; i < listaResultado.length; i++) {
+            if (listaResultado[i] == '1') {
+                contVit++
+            } else if (listaResultado[i] == '2') {
+                contEmp++
+            } else if (listaResultado[i] == '3') {
+                contDer++
+            }
+        }
+
+        var pontuacaoTotal = (contVit * 3) + contEmp
+
+
+        mensagem += `O time teve: ${contVit} vitórias, ${contEmp} empates, ${contDer} derrotas <br> Pontuação total: ${pontuacaoTotal} <br> Aproveitamento: ${(pontuacaoTotal / (listaResultado.length * 3)) * 100}`
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function indicar() {
+        var indicacao = Number(iptIndicacao.value) - 1 
+
+        var mensagem = ``
+
+        if (indicacao > listaResultado.length - 1 || indicacao <= -1) {
+            mensagem += `Não foi cadastrado um jogo ${indicacao + 1}º`
+        } else if (listaResultado[indicacao] == '1') {
+            mensagem += `No ${indicacao + 1}º jogo, o time ganhou!`
+        } else if (listaResultado[indicacao] == '2') {
+            mensagem += `No ${indicacao + 1}º jogo, o time empatou!`
+        } else {
+            mensagem += `No ${indicacao + 1}º jogo, o time perdeu!`
+        }
+
+        divIndicacao.innerHTML = mensagem
+    }
+</script>
