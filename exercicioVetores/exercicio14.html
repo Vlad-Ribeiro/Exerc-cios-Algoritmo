@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    digite um número qualquer:
+    <input type="number" id="iptNumero"> <br>
+    <button onclick="analisar()">Analisar Histórico</button> <br>
+    <div id="divMensagem"></div>
+</body>
+</html>
+<script>
+    var listaNumero = []
+
+    function analisar() {
+        numero = Number(iptNumero.value)
+
+        listaNumero.push(numero)
+
+        var mensagem = ``
+
+        for (i = 0; i < listaNumero.length; i++) {
+            mensagem += `${i + 1}º Número: ${listaNumero[i]} <br>`
+        }
+
+        mensagem += `Maior: ${maiorN} <br> Menor: ${menorN}`
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>
