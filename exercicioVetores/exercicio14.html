@@ -14,6 +14,8 @@
 </html>
 <script>
     var listaNumero = []
+    var maiorNumero = -99999999999999999999
+    var menorNumero = 99999999999999999999
 
     function analisar() {
         numero = Number(iptNumero.value)
@@ -24,9 +26,17 @@
 
         for (i = 0; i < listaNumero.length; i++) {
             mensagem += `${i + 1}º Número: ${listaNumero[i]} <br>`
+
+            if (listaNumero[i] > maiorNumero) {
+                maiorNumero = listaNumero[i]
+            }
+
+            if (listaNumero[i] < menorNumero) {
+                menorNumero = listaNumero[i]
+            }
         }
 
-        mensagem += `Maior: ${maiorN} <br> Menor: ${menorN}`
+        mensagem += `Maior: ${maiorNumero} <br> Menor: ${menorNumero}`
 
         divMensagem.innerHTML = mensagem
     }

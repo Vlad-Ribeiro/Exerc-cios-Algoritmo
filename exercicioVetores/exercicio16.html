@@ -14,6 +14,11 @@
 </body>
 </html>
 <script>
+    var valorMaisCaro = -999999999999999999999
+    var valorMaisBarato = 99999999999999999999
+    var produtoMaisCaro = ``
+    var produtoMaisBarato = ``
+    
     var listaProduto = []
     var listaPreco = []
 
@@ -29,28 +34,24 @@
         var mensagem = `Total de produtos: ${listaProduto.length} <br>`
 
         var precoTotal = 0
-        var produtoMaisCaro = ``
-        var produtoMaisBarato = ``
 
         for (i = 0; i < listaProduto.length; i++) {
             mensagem += `Produto ${i + 1}: ${listaProduto[i]} <br> Preço de compra: R$${listaPreco[i]}. Vender por R$${listaPreco[i] += listaPreco[i] * 0.25} <br>`
 
             precoTotal += listaPreco[i]
 
-            if (listaPreco[i] < listaPreco[i - 1]) {
-                produtoMaisBarato = `${listaProduto[i]}`
+            if (listaPreco[i] > valorMaisCaro) {
+                produtoMaisCaro = listaProduto[i]
             }
 
-            if (listaPreco[i] > listaPreco[i - 1]) {
-                produtoMaisCaro = `${listaProduto[i]}`
+            if (listaPreco[i] < valorMaisBarato) {
+                produtoMaisBarato = listaProduto[i]
             }
         }
 
         mensagem += `Preço total dos produtos: ${precoTotal} <br> Média de preço: ${precoTotal / listaPreco.length} <br>`
 
         mensagem += `Produto mais barato: ${produtoMaisBarato} <br> Produto mais caro: ${produtoMaisCaro} <br>`
-
-        
 
         divMensagem.innerHTML = mensagem
     }
