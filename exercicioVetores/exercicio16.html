@@ -14,13 +14,13 @@
 </body>
 </html>
 <script>
+    var listaProduto = []
+    var listaPreco = []
+
     var valorMaisCaro = -999999999999999999999
     var valorMaisBarato = 99999999999999999999
     var produtoMaisCaro = ``
     var produtoMaisBarato = ``
-    
-    var listaProduto = []
-    var listaPreco = []
 
     function cadastrar() {
         var nomeProduto = iptNome.value
@@ -36,15 +36,17 @@
         var precoTotal = 0
 
         for (i = 0; i < listaProduto.length; i++) {
-            mensagem += `Produto ${i + 1}: ${listaProduto[i]} <br> Preço de compra: R$${listaPreco[i]}. Vender por R$${listaPreco[i] += listaPreco[i] * 0.25} <br>`
+            mensagem += `Produto ${i + 1}: ${listaProduto[i]} <br> Preço de compra: R$${listaPreco[i]}. Vender por R$${listaPreco[i] += 1.25} <br>`
 
             precoTotal += listaPreco[i]
 
             if (listaPreco[i] > valorMaisCaro) {
+                valorMaisCaro = listaPreco[i]
                 produtoMaisCaro = listaProduto[i]
             }
-
+            
             if (listaPreco[i] < valorMaisBarato) {
+                valorMaisBarato = listaPreco[i]
                 produtoMaisBarato = listaProduto[i]
             }
         }
