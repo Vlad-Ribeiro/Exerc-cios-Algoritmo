@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Produto: <input type="text" id="iptProduto"> <br>
+    Código: <input type="text" id="iptCodigo"> <br>
+    Quantidade: <input type="number" name="" id="iptQuantidade"> <br>
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+    <button onclick="repor()">Repor Estoque</button>
+    <button onclick="vender()">Vender Produto</button>
+    <button onclick="exibir()">Exibir Relatório</button> <br>
+    <div id="divMensagem"></div> <br>
+    <div id="divRelatorio"></div>
+</body>
+</html>
+<script>
+    var listaProduto = []
+    var listaCodigo = []
+    var listaQuantidade = []
+
+    function cadastrar() {
+        var produto = iptProduto.value
+        var codigo = iptCodigo.value
+        var quantidade = Number(iptQuantidade.value)
+
+        produto = produto.toLowerCase()
+        codigo = codigo.toLowerCase()
+
+        if (produto == undefined || codigo == undefined || produto == undefined) {
+            alert('Preencha todos os campos para registrar um novo produto') 
+        } else if (quantidade < 10) {
+            alert('Quantidade mínima não atendida. (Quantidade mínima = 10)')
+        } else if (listaCodigo.includes(codigo)) {
+            alert('Código de produto já existente')
+        } else {
+            alert('Produto ' + produto + ' registrado com sucesso')
+            listaProduto.push(produto)
+            listaCodigo.push(codigo)
+            listaQuantidade.push(quantidade)
+        }
+    }
+
+    function repor() {
+        var produto = iptProduto.value
+        produto = produto.toLowerCase()
+        var codigo = iptCodigo.value
+        codigo = codigo.toLowerCase()
+        var quantidade = Number(iptQuantidade.value)
+        var status = `(OK)`
+        var mensagem = ``
+
+        for (i = 0; i < listaProduto.length; i++) {
+    
+            if (listaProduto[i].includes(produto) && listaCodigo[i].includes(codigo) && quantidade > 0) {
+                listaQuantidade[i] += quantidade
+                mensagem = quantidade + ' do ' + produto + ' foi reposto com sucesso <br>'
+
+                if (listaQuantidade[i] < 10) {
+                    status = `(Precisa Repor)`
+                }
+
+                mensagem += `Código: ${listaCodigo[i]} | Produto: ${listaProduto[i]} | Quantidade em estoque: ${listaQuantidade[i]} ${status}`
+            } else if (quantidade < 1) {
+                mensagem = 'Quantidade inválida'
+            } else {
+                mensagem = 'Produto não identificado'
+            }
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function vender() {
+        var produto = iptProduto.value
+        produto = produto.toLowerCase()
+        var codigo = iptCodigo.value
+        codigo = codigo.toLowerCase()
+        var quantidade = Number(iptQuantidade.value)
+        var status = `(OK)`
+        var mensagem = ``
+
+        for (i = 0; i < listaProduto.length; i++) {
+            if (listaProduto[i].includes(produto) && listaCodigo[i].includes(codigo) && listaQuantidade[i] >= quantidade) {
+                listaQuantidade[i] -= quantidade
+
+                mensagem = quantidade + ' do ' + produto + ' foi vendido com sucesso <br>'
+
+                if (listaQuantidade[i] < 10) {
+                    alert('Produto: ' + produto + ' está abaixo da quantidade mínima. Precisa de reposição!')
+                    status = `(Precisa Repor)`
+                }
+
+                mensagem += `Código: ${listaCodigo[i]} | Produto: ${listaProduto[i]} | Quantidade em estoque: ${listaQuantidade[i]} ${status}`
+            } else if (listaQuantidade[i] < quantidade) {
+                mensagem = 'Quantidade inválida'
+            } else {
+                mensagem = 'Produto não identificado!'
+            }
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function exibir() {
+        var status = `(OK)`
+        var mensagem = ``
+        var totalProdutos = 0
+        var categoria = 0
+
+        for (i = 0; i < listaProduto.length; i++) {
+            if (listaQuantidade[i] < 10) {
+                status = `(Precisa Repor)`
+
+                mensagem += `Categoria ${i + 1} - Código: ${listaCodigo[i]} | Produto: ${listaProduto[i]} | Quantidade em Estoque: ${listaQuantidade[i]} ${status} <br>`
+            } else {
+                mensagem += `Categoria ${i + 1} - Código: ${listaCodigo[i]} | Produto: ${listaProduto[i]} | Quantidade em Estoque: ${listaQuantidade[i]} ${status} <br>`
+            }
+
+            totalProdutos += listaQuantidade[i]
+            categoria++
+        }
+
+        mensagem += `<br> Seu estoque tem ${totalProdutos} produtos registrados, sendo ${categoria} categorias diferentes.`
+
+        divMensagem.innerHTML = mensagem
+    }
+</script>
