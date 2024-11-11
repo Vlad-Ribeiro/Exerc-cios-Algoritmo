@@ -6,12 +6,51 @@
     <title>Document</title>
 </head>
 <body>
-    Informe a compra
+    Produto: <input type="text" id="iptProduto"> <br>
+    Quantidade: <input type="number" name="" id="iptQuantidade"> <br>
+    <button onclick="comprar()">Comprar</button>
+    <button onclick="vender()">Vender</button> <br>
+    <div id="divMensagem"></div>
 </body>
 </html>
 <script>
-    var listProduto = ['Gasolina Comum', 'Gasolina Adtivada', 'Etanol', 'Álcool']
-    var listProdutoQtd = [100, 80, 50, 200]
-
+    var listaProduto = []
+    var listaQuantidade = []
     
+    function comprar() {
+        var produto = iptProduto.value
+        var quantidade = Number(iptQuantidade.value)
+        var mensagem = `Lista produtos: <br>`
+
+        if (listaProduto.includes(produto)) {
+            alert('Produto já existe na lista')
+        } else {
+            listaProduto.push(produto)
+            listaQuantidade.push(quantidade)
+            alert('Compra feita com sucesso')
+        }
+
+        for (i = 0; i < listaProduto.length; i++) {
+            mensagem += `Produto: ${listaProduto[i]} | Quantidade: ${listaQuantidade[i]} <br>`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function vender() {
+        var produto = iptProduto.value
+        var quantidade = Number(iptQuantidade.value)
+        var mensagem = ``
+
+        for (i = 0; i < listaProduto.length; i++) {
+            if (listaProduto[i].includes(produto) && listaQuantidade[i] >= quantidade) {
+                listaQuantidade[i] -= quantidade
+                alert('Venda feita com sucesso')
+            }
+
+            mensagem += `Produto: ${listaProduto[i]} | Quantidade: ${listaQuantidade[i]} <br>`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
 </script>
