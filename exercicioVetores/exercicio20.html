@@ -12,7 +12,16 @@
     <input type="number" name="" id="iptPreco"> <br>
     <button onclick="cadastrar()">Cadastrar</button> <br>
     <button onclick="atualizar()">Atualizar Estoque</button> <br>
-    <div id="divEstoque"></div>
+    <div id="divEstoque"></div> <br>
+    Filtro:
+    <select name="" id="slcMetrica">
+        <option value="1">Preços acima de</option>
+        <option value="2">Preços abaixo de</option>
+    </select>
+    Valor:
+    <input type="number" id="iptValor"> <br>
+    <button onclick="filtrar()">Filtrar Produtos</button> <br>
+    <div id="divFiltro"></div>
 </body>
 </html>
 <script>
@@ -49,5 +58,28 @@
         divEstoque.innerHTML = mensagem
     }
 
-    
+    function filtrar() {
+        var metrica = slcMetrica.value
+        var valor = Number(iptValor.value)
+
+        var mensagemFiltro = ``
+
+        if (metrica == '1') {
+            for (i = 0; i < listaPreco.length; i++) {
+                if (listaPreco[i] > valor) {
+                    mensagemFiltro += `${listaProdutos[i]} <br>`
+                }
+            }
+        }
+
+        if (metrica == '2') {
+            for (i = 0; i < listaPreco.length; i++) {
+                if (listaPreco[i] < valor) {
+                    mensagemFiltro += `${listaProdutos[i]} <br>`
+                }
+            }
+        }
+
+        divFiltro.innerHTML = mensagemFiltro
+    }
 </script>
