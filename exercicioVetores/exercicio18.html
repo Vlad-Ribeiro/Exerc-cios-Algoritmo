@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o nome das músicas que mais gosta:
+    <input type="text" id="iptMusica"> <br>
+    <button onclick="cadastrar()">Cadastrar</button> <br>
+    <button onclick="exibir()">Exibir</button> <br>
+    <div id="divMensagem"></div> <br>
+    De... <input type="number" name="" id="iptInterMenor"> Até... <input type="number" name="" id="iptInterMaior"> <br>
+    <button onclick="filtrar()">Filtrar</button> <br>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    var listaMusicas = []
+
+    function cadastrar() {
+        var musica = iptMusica.value
+
+        listaMusicas.push(musica)
+    }
+
+    function exibir() {
+        var mensagem = ``
+
+        for (i = 0; i < listaMusicas.length; i++) {
+            mensagem += `${listaMusicas[i]} <br>`
+        }
+
+        divMensagem.innerHTML = mensagem
+    }
+
+    function filtrar() {
+        var interMenor = Number(iptInterMenor.value)
+        var interMaior = Number(iptInterMaior.value)
+
+        var mensagem = ``
+
+        if (interMenor < 1) {
+            alert('Insira um número acima de ZERO')
+        } else if (interMenor > interMaior) {
+            alert('Insira um intervalo válido, onde o primeiro valor deve ser menor que o segundo')
+        } else if (interMenor > listaMusicas.length || interMaior > listaMusicas.length) {
+            alert('Ainda não foram cadastradas músicas acima desses números')
+        } else {
+            for (i = interMenor - 1; i <= interMaior - 1; i++) {
+                mensagem += `${listaMusicas[i]} <br>`
+            }
+        }
+
+        divResultado.innerHTML = mensagem
+    }
+</script>

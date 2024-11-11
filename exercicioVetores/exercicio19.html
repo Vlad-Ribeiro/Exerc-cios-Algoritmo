@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Informe o nome de cada filme que já viu em vida:
+    <input type="text" id="iptFilme"> <br>
+    <button onclick="cadastrar()">Cadastrar</button> <br>
+    <div id="divContagem"></div> <br>
+    <button onclick="listar()">Listar Filmes</button> <br>
+    <div id="divLista"></div> <br>
+    Informe um intervalo crescente:
+    <input type="number" name="" id="iptInterMenor"> <input type="number" name="" id="iptInterMaior"> <br>
+    <button onclick="filtrar()">Filtrar Filmes</button>
+    <div id="divFiltro"></div>
+</body>
+</html>
+<script>
+    var listaFilmes = []
+
+    function cadastrar() {
+        var filme = iptFilme.value
+
+        listaFilmes.push(filme)
+
+        divContagem.innerHTML = `Você já assistiu ${listaFilmes.length} filme(s)`
+    }
+
+    function listar() {
+        var mensagem = ``
+
+        for (i = listaFilmes.length - 1; i >= 0; i--) {
+            mensagem += `${listaFilmes[i]} <br>`
+        }
+
+        divLista.innerHTML = mensagem
+    }
+
+    function filtrar() {
+        var interMenor = Number(iptInterMenor.value)
+        var interMaior = Number(iptInterMaior.value)
+
+        var mensagem = ``
+
+        for (i = interMaior; i >= interMenor; i--) {
+            mensagem += `${listaFilmes[i - 1]} <br>`
+        }
+
+        divFiltro.innerHTML = mensagem
+    }
+</script>
