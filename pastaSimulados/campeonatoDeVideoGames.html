@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="divCadastro">
+        Insira seu nome: <input type="text" id="iptNome"> <br>
+        <button onclick="cadastrar()">Cadastrar Nome</button> <br>
+        <div id="divMensagemCadastro"></div>
+        <button onclick="registro()">Ir para Registro de Pontuações</button>
+    </div>
+
+    <div id="divRegistro" style="display: none;">
+        <div id="divMensagemRegistro"></div>
+    </div>
+</body>
+</html>
+<script>
+    var listaNomes = []
+
+    function cadastrar() {
+        var nome = iptNome.value
+        var mensagemCadastro = ``
+        var mensagemRegistro = ``
+
+        if (nome == '' || nome == undefined) {
+            mensagemCadastro = `<span style = 'color: red;'>Insira um nome!</span>`
+        } else if (listaNomes.includes(nome)) {
+            mensagemCadastro = `<span style = 'color: red;'>Nome já cadastrado. Digite novo nome.</span>`
+        } else {
+            mensagemCadastro = `<span style = 'color: green;'>Nome cadastrado com sucesso!</span>`
+            listaNomes.push(nome)
+        }
+
+        divMensagemCadastro.innerHTML = mensagemCadastro
+
+        for (i = 0; i < listaNomes.length; i++) {
+            mensagemRegistro += `${listaNomes[i]} - (${i + 1}/${listaNomes.length}) <br>`
+        }
+
+        divMensagemRegistro.innerHTML = mensagemRegistro
+    }
+
+    function registro() {
+        if (listaNomes.length < 1) {
+            divMensagemCadastro.innerHTML = `<span style = 'color: red;'>Nenhum jogador cadastrado!</span>`
+        } else {
+            divCadastro.style.display = 'none'
+            divRegistro.style.display = 'block'
+        }
+    }
+
+
+</script>
