@@ -10,16 +10,24 @@
         Insira seu nome: <input type="text" id="iptNome"> <br>
         <button onclick="cadastrar()">Cadastrar Nome</button> <br>
         <div id="divMensagemCadastro"></div>
-        <button onclick="registro()">Ir para Registro de Pontuações</button>
+        <button onclick="telaRegistro()">Ir para Registro de Pontuações</button>
     </div>
 
     <div id="divRegistro" style="display: none;">
-        <div id="divMensagemRegistro"></div>
+        Insira a pontuação do primeiro jogador ao último:<input type="number" id="iptPontuacao"> <button onclick="registro()">Registrar pontuação</button> <br>
+        <div id="divConfirmacao"></div>
+        <div id="divMensagemRegistro"></div> <br> <br>
+        <button onclick="finalizar()">Finalizar e Exibir Resultados</button>
+    </div>
+
+    <div id="divFinalizacao" style="display: none;">
+        <div id="divMensagemFinal"></div>
     </div>
 </body>
 </html>
 <script>
     var listaNomes = []
+    var listaPontuação = []
 
     function cadastrar() {
         var nome = iptNome.value
@@ -44,7 +52,7 @@
         divMensagemRegistro.innerHTML = mensagemRegistro
     }
 
-    function registro() {
+    function telaRegistro() {
         if (listaNomes.length < 1) {
             divMensagemCadastro.innerHTML = `<span style = 'color: red;'>Nenhum jogador cadastrado!</span>`
         } else {
@@ -53,5 +61,60 @@
         }
     }
 
+    var posicao = 0
 
+    function registro() {
+        var pontuacao = Number(iptPontuacao.value)
+
+        if (pontuacao < 1) {
+            divConfirmacao.innerHTML = `<span style = 'color: red;'>Pontuação inválida! Insira um número maior que zero.</span>`
+        } else if (posicao == listaNomes.length) {
+            alert('Todos os jogadores já possuem pontuação!')
+        } else {
+            listaPontuação.push(pontuacao)
+            posicao++
+            divConfirmacao.innerHTML = `<span style = 'color: green;'>Pontuação cadastrada com sucesso!</span>`
+        }
+    }
+
+    function finalizar() {
+
+        if (listaNomes.length != listaPontuação.length ) {
+            divConfirmacao.innerHTML = `<span style = 'color: red;'>Todos os jogadores devem ter suas pontuações cadastradas!</span>`
+            return;
+        }
+            
+        divRegistro.style.display = 'none'
+        divFinalizacao.style.display = 'block'
+
+        var totalPontos = 0
+        
+        for (i = 0; i < listaNomes.length; i++) {
+            totalPontos += listaPontuação[i]
+        }
+
+        var mensagem = `Total: ${totalPontos} pontos <br> Jogadosres(${listaNomes.length}): <br>`
+        var mensagemVencedor = ``
+
+        var bonificacao = 0
+        var maiorPontuação = 0
+
+        for (i = 0; i < listaNomes.length; i++) {
+            var conta = (listaPontuação[i] / totalPontos * 100).toFixed(0)
+
+            if (listaPontuação[i] % 3 == 0 && listaPontuação[i] % 5 == 0) {
+                mensagem += `${i + 1} - ${listaNomes[i]}, ${listaPontuação[i]} pontos, ${conta}% (PRÊMIO BÔNUS) <br>`
+                bonificacao++
+            } else {
+                mensagem += `${i + 1} - ${listaNomes[i]}, ${listaPontuação[i]} pontos, ${conta}% <br>`
+            }
+
+            if (listaPontuação[i] > maiorPontuação) {
+                maiorPontuação = listaPontuação[i]
+                mensagemVencedor = `Vencedor: ${listaNomes[i]}, ${listaPontuação[i]} pontos <br> Jogadores Bonificados: ${bonificacao}`
+            }
+        }
+
+        divMensagemFinal.innerHTML = `${mensagem} <br> ${mensagemVencedor}`
+    }       
 </script>
