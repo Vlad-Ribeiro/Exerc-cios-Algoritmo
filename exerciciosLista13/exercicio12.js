@@ -5,7 +5,18 @@ function verificarOrdem(vetor) {
 
     for (i = 0; i < vetor.length; i++) {
 
+        for (j = 0; j < vetor.length; j++) {
+
+            if (isNaN(vetor[j])) {
+
+                return "Lista inválida"
+    
+            }
+        }
+
+
         if (vetor[index1] < vetor[index2]) {
+
             index1++
             index2++
 
