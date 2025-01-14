@@ -1,24 +1,22 @@
 function maioresDoVetor(vetor, num) {
 
-    let novoVetor = []
+    let maiores = []
 
-    let menorValor = vetor[0]
-    let maiorValor = vetor[0]
+    for (i = 0; i < num; i++) {
+        let maiorValor = -Infinity
 
-    for (i = 0; i < vetor.length; i++) {
-
-        if (vetor[i] > maiorValor) {
-            maiorValor = vetor[i]
+        for (j = 0; j < vetor.length; j++) {
+            if (vetor[j] > maiorValor && !maiores.includes(vetor[j])) {
+                maiorValor = vetor[j];
+            }
         }
 
-        if (vetor[i] < menorValor) {
-            menorValor = vetor[i]
-        }
+        maiores.push(maiorValor)
     }
 
-    console.log(menorValor, maiorValor)
+    return maiores
 }
 
-let lista = [31, 40, 32, 30, 12, -5, -20, -12]
+let lista = [31, 40, 32, 30, 12, -5, -20, -12, 41]
 
-console.log(maioresDoVetor(lista, 3))
+console.log(maioresDoVetor(lista, 5))
